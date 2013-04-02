@@ -1,0 +1,9 @@
+ANDROID_HOME=/home/rawwei/androidsource/prebuilts/ndk/7/platforms/android-14/arch-arm
+
+all: so
+
+obj:
+	gcc -I/home/raowei/androidsource/prebuilts/ndk/7/platforms/android-14/arch-arm/usr/include -I/usr/lib/jvm/java/jdk1.6.0_38/include/linux -I/usr/lib/jvm/java/jdk1.6.0_38/include -I/home/raowei/androidsource/development/ndk/platforms/android-3/include -Wall -fPIC -c filters/*.c
+
+so: obj
+	gcc -shared -Wl,-soname,libafilter.so.1 -o libafilter.so.1.0 *.o
